@@ -15,7 +15,7 @@ import WhatsappMessageRoutes from './routes/whatsappMessagesRoutes.js';
 import agentRouter from './routes/agent.js';
 import adjustmentRouter from './routes/adjustmentRoutes.js';
 import adminRouter from './routes/admin.js';
-
+import path from "path"
 
 dotenv.config()
 
@@ -32,6 +32,12 @@ app.use(cors({
   origin: 'http://localhost:3000',
   credentials: true
 }))
+
+app.use(express.static(path.join(__dirname, '/frontend/dist')));
+
+app.get(/^\/(?!api).*/, (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+});
 
 
 // Mount all routes under /api/v1
