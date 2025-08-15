@@ -15,7 +15,6 @@ import WhatsappMessageRoutes from './routes/whatsappMessagesRoutes.js';
 import agentRouter from './routes/agent.js';
 import adjustmentRouter from './routes/adjustmentRoutes.js';
 import adminRouter from './routes/admin.js';
-import path from "path"
 
 dotenv.config()
 
